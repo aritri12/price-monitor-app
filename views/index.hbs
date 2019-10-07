@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello {{ name }}</title>
+    <!--Load bootstrap.css file-->
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+  </head>
+  <body>
+    
+
+<nav class="navbar navbar-light" style="background-color: #fed541;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:black"><strong>Price Monitor App</strong></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/post" style="color:black">Home</a></li>
+      <li><a href="/list" style="color:black">List Product</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron">
+            <h1 class="display-4">Sukses, </h1>
+            <p class="lead">Produk <strong>{{ name }}</strong> berhasil ditambahkan</p>
+            <h4>{{ harga }}</h4>
+            <br>
+            <a><strong>Deskripsi produk : </strong>{{ deskripsi }}</a>
+
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Lihat semua produk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!--Load bootstrap.js file-->
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

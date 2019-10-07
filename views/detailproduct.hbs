@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Detail Product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  </head>
+  <body>
+  
+
+<nav class="navbar navbar-light" style="background-color: #fed541;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:black"><strong>Price Monitor App</strong></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/post" style="color:black">Home</a></li>
+      <li><a href="/list" style="color:black">List Product</a></li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+     
+
+          <div align="center">
+          <h2>Detail Produk</h2>
+                    {{#each data}}
+
+            <h3>{{nama}}</h3>
+              <h4>{{harga}}</h4>
+              <h6>{{deskripsi}}</h6>
+          {{/each}}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!--Load bootstrap.js file-->
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
