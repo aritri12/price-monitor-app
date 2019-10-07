@@ -75,7 +75,7 @@ Handlebars.registerHelper('trimString', function(passedString, startstring, ends
 
 
 //route untuk halaman home
-app.get('/',(req, res) => {
+app.get('/fikri',(req, res) => {
   //render file index.hbs
   res.render('index',{
     name : "M Fikri"
@@ -83,7 +83,7 @@ app.get('/',(req, res) => {
 });
  
 //route untuk manampilkan form
-app.get('/post',(req, res) => {
+app.get('/',(req, res) => {
   //render file form.hbs
   res.render('form');
 });
@@ -149,11 +149,13 @@ app.get('/list', function (req, res) {
 })
 
 //route untuk submit form
-app.post('/post',(req, res) => {
+app.post('/',(req, res) => {
   //render file form.hbs
-  
-
-  request('https://fabelio.com/ip/dabi-sofa-bed.html', function (error, response, html) {
+  console.log(req.body.textname);
+  var urlinput = req.body.textname;
+  //let data = {linktersimpan: req.body.textname}
+  //console.log(data);
+  request(urlinput, function (error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
     var nama = $('span[class=base]').html();
