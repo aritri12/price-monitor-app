@@ -77,11 +77,38 @@ Handlebars.registerHelper('trimString', function(passedString, startstring, ends
 //route untuk halaman home
 app.get('/fikri',(req, res) => {
   //render file index.hbs
+
+  
+  var phantom = require("phantom");
+  var _ph, _page, _outObj;
+
+  phantom.create().then(function(ph){
+      _ph = ph;
+      return _ph.createPage();
+  }).then(function(page){
+      _page = page;
+      return _page.open('https://fabelio.com/ip/gracie-tv-credenza.html');
+  }).then(function(status){
+      //console.log(status);
+      return _page.property('content')
+  }).then(function(content){
+      //console.log(content);
+      var gambarr = $('.logo img').attr('src');
+
+      console.log(gambar);
+
+      _page.close();
+      _ph.exit();
+  }).catch(function(e){
+     console.log(e); 
+  });
+
   res.render('index',{
     name : "M Fikri"
   });
 });
  
+
 //route untuk manampilkan form
 app.get('/',(req, res) => {
   //render file form.hbs
@@ -158,8 +185,18 @@ app.post('/',(req, res) => {
   request(urlinput, function (error, response, html) {
     if (!error && response.statusCode == 200) {
       var $ = cheerio.load(html);
+    console.log("+++++++++++++++++++");
+    //console.log($);
+    //console.log($.root().html());
     var nama = $('span[class=base]').html();
     var harga = $('span[class=price]').html();
+
+
+    var cobaKuy = $('div.yotpo.yotpo-main-widget').attr('data-image-url');
+    console.log(cobaKuy);
+    console.log("+++++++++++++++++++");
+
+    //var cobaKUY = $('.f-blue img').attr('src');
     //var href = $('img.fotorama__img').attr('src');
     var href = $('img.fotorama__img').attr('src');
 
@@ -169,6 +206,7 @@ app.post('/',(req, res) => {
     //var href = $('div.fotorama__stage__frame.fotorama__active.fotorama_horizontal_ratio.fotorama__loaded.fotorama__loaded--img').attr('href');
 
     //var href = $('.fotorama__stage__frame.fotorama__active .fotorama_horizontal_ratio.fotorama__loaded.fotorama__loaded--img').attr('href');
+    var source = $('.product-media__wrapper img').attr('src');
     //var source = $('.logo img').attr('src');
     //var source = $
     //var source = document.getElementsByClassName("fotorama__img'");
@@ -176,7 +214,7 @@ app.post('/',(req, res) => {
     //$('.thumbnail img').attr('src');
     //var href = $('img[src$=".jpg"]');
 
-
+    console.log(source);
     console.log(nama);
     console.log(harga);
     console.log(deskripsi);
@@ -194,7 +232,7 @@ app.post('/',(req, res) => {
     db.connect(function(err) {
         if (err) throw err;
         
-        let sql = "INSERT INTO products (nama, harga, deskripsi) VALUES ('"+nama+"','"+ harga+"','"+ deskripsi+"')";
+        let sql = "INSERT INTO products (nama, harga, deskripsi, urlgambar) VALUES ('"+nama+"','"+ harga+"','"+ deskripsi+"','"+ cobaKuy+"')";
 
        // var values = ['${nama}', 'harga', 'deskripsi'];
         db.query(sql, function (err, result) {
@@ -209,7 +247,8 @@ app.post('/',(req, res) => {
           
           name : nama,
           harga : harga,
-          deskripsi : deskripsi
+          deskripsi : deskripsi,
+          urlgambar : cobaKuy
         });
     }
   });

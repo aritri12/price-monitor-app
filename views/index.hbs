@@ -2,15 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hello {{ name }}</title>
-    <!--Load bootstrap.css file-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
+    <title>Added</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
-  <body>
+<body>
     
-
 <nav class="navbar navbar-light" style="background-color: #fed541;">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -22,26 +18,22 @@
     </ul>
   </div>
 </nav>
-
-
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="jumbotron">
             <h1 class="display-4">Sukses, </h1>
             <p class="lead">Produk <strong>{{ name }}</strong> berhasil ditambahkan</p>
-            <h4>{{ harga }}</h4>
+            <h4>Harga produk: <strong>{{ harga }}</strong></h4>
+            <img src="{{urlgambar}}" style="border-radius: 60%" height="150px" alt="gambar produk" hspace="10">
             <br>
-            <h6><strong>Deskripsi produk : </strong>{{ deskripsi }}</h6>
-
+            <h6><strong>Deskripsi produk: </strong>{{ deskripsi }}</h6>
             <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="/list" role="button">Lihat semua produk</a>
+            <a class="btn btn-warning btn-lg" href="/list" role="button">Lihat semua produk</a>
           </div>
         </div>
       </div>
-    </div>
- 
-    <!--Load bootstrap.js file-->
+    </div> 
     <script src="js/bootstrap.js"></script>
   </body>
 </html>

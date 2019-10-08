@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Detail Product</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
   </head>
   <body>
   
@@ -21,24 +21,29 @@
   </div>
 </nav>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
-
-     
-
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
           <div align="center">
           <h2>Detail Produk</h2>
-                    {{#each data}}
-
-            <h3>{{nama}}</h3>
-              <h4>{{harga}}</h4>
-              <h6>{{deskripsi}}</h6>
-          {{/each}}
-
-
+              {{#each data}}
+                <img src="{{urlgambar}}" style="border-radius: 9%" height="250px" alt="gambar produk" hspace="10">
+                <h3>{{nama}}</h3>
+                <h4>{{harga}}</h4>
+                <h5>{{deskripsi}}</h5>
+              {{/each}}
+            <a href="/" class="btn btn-lg btn-primary">
+                  TAMBAH PRODUK
+            </a>
+            <a>&nbsp;&nbsp;</a>
+            <a href="/list" class="btn btn-lg btn-warning">
+                  LIHAT SEMUA PRODUK
+            </a>
           </div>
         </div>
+        <div class="col-md-1"></div>
+
       </div>
     </div>
  

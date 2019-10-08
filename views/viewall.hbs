@@ -2,20 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Insert Product Page Link</title>
+    <title>All Product</title>
     <!--Load bootstrap.css file-->
     <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.0/datatables.min.js"></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css">
 
+    <script>
+        $(document).ready(function() {
+             $('#tabel-data').DataTable({
+            "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
+        });
+        } );
+    </script>
   </head>
-  <body onload="myFunction()">
-
-          <!--Navbar -->
-
-<!--/.Navbar -->
-
-
-
+<body>
 
 <nav class="navbar navbar-light" style="background-color: #fed541;">
   <div class="container-fluid">
@@ -34,38 +39,33 @@
         <div class="col-md-12">
           <a id="demo"></a>
          <div align="center">
-          <h2>Daftar Produk</h2>
-          
+          <h1>Daftar Produk</h1>
+          <br>    
           </div>
                 <table id="tabel-data" class="table table-hover">
           <thead>
           <tr>
-              <th bgcolor="lightgrey">Nama </th>
-              <th bgcolor="lightgrey">Harga</th>
-              <th bgcolor="lightgrey">Deskripsi</th>
-              <th bgcolor="lightgrey">Hapus</th>
+              <th bgcolor="#fed541">Nama </th>
+              <th bgcolor="#fed541">Harga</th>
+              <th bgcolor="#fed541">Deskripsi</th>
           </tr>
         </thead>
         <tbody>
           {{#each data}}
           <tr>
-              <td style="vertical-align: middle">
+              <td style="vertical-align: middle" width="20%">
               <a href="/product/{{id}}" style="color:blue">{{nama}}</a></td>
-              <td>{{harga}}</td>
+              <td style="vertical-align: middle" width="10%">{{harga}}</td>
               <td>{{deskripsi}}</td>
-              <td style="vertical-align: middle">hapus</td>
           </tr>
           {{/each}}
-
           </tbody>
         </table>
-
-
-
+        <br><br>
         </div>
       </div>
     </div>
- 
+    
     <!--Load bootstrap.js file-->
     <script src="js/bootstrap.js"></script>
   </body>
